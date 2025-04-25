@@ -85,4 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Mostrar la imagen de inicio por defecto
     showImage('inicio');
+
+    
 });
