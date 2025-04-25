@@ -12,6 +12,35 @@ body {
 }
 
 
+/* Estilos de la sección Hero */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Oculta cualquier desbordamiento del video */
+    cursor: crosshair; /* Cambia el cursor para indicar interactividad */
+}
+
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* Asegura que el video esté detrás del contenido */
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: transform 0.3s ease-out; /* Transición suave para el zoom */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    /* Estilos adicionales para el contenido sobre el video si es necesario */
+}
+
 /* Intro y animación inicial */
 .intro {
     position: fixed;
