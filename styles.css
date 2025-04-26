@@ -4,22 +4,52 @@
     box-sizing: border-box;
 }
 
+html {
+    /* Ocultar la barra de desplazamiento pero mantener la funcionalidad */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Opera */
+}
+
 body {
     font-family: 'Futura', 'Trebuchet MS', 'Arial', sans-serif;
-    background-color: #121212;
+    background-color: rgba(26, 26, 26, 0.98);
     color: #121212;
     overflow-x: hidden;
+    /* Añadir margen lateral para que el contenido no esté pegado a los bordes */
+    padding: 0 15px;
 }
 
 
 /* Estilos de la sección Hero */
 .hero {
-    position: relative;
-    width: 100vw;
+    position: fixed;
+    width: calc(100vw - 30px); /* Ajustar para el margen lateral */
     height: 100vh;
     overflow: hidden; /* Oculta cualquier desbordamiento del video */
     cursor: crosshair; /* Cambia el cursor para indicar interactividad */
+    top: 0;
+    left: 15px; /* Centrar con el margen lateral */
+    z-index: 1; /* Asegura que esté debajo de la sección about */
+    padding: 0;
+    margin: 20px 0; /* Solo margen vertical */
+    border-radius: 15px 15px 0 0; /* Redondeado solo en la parte superior */
 }
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%; /* Aumentado para un degradado más suave */
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.98), transparent);
+    z-index: 2; /* Asegura que el degradado esté sobre el video pero debajo de la sección about */
+}
+
 
 #hero-video {
     position: absolute;
@@ -75,7 +105,7 @@ body {
 /* Botón de menú hamburguesa */
 .menu-btn {
     position: fixed;
-    top: 20px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     width: 50px;
@@ -147,6 +177,8 @@ body {
     padding: 0;
     
 }
+
+
 
 
 .main-nav {
@@ -303,6 +335,61 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+}
+
+/* Estilos de la sección About */
+.about-section {
+    margin-top: 100vh; /* Empuja la sección hacia abajo para que no quede oculta por el hero fijo */
+    min-height: 100vh;
+    background-color: rgba(26, 26, 26, 0.98); /* Un color de fondo oscuro para cubrir el hero con alta opacidad */
+    color: #edefef; /* Texto claro sobre fondo oscuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem; /* Añadir algo de padding */
+    position: relative; /* Necesario para el z-index */
+    z-index: 5; /* Aumentado para asegurar que esté sobre el hero y todos sus elementos */
+    width: calc(100% - 30px); /* Ajustar para el margen lateral */
+    margin-left: 15px; /* Margen izquierdo */
+    margin-right: 15px; /* Margen derecho */
+    border-radius: 50px 50px 0 0; /* Redondeado solo en la parte superior */
+    overflow: hidden; /* Asegura que el contenido no se desborde del contenedor */
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3); /* Sombra sutil en la parte superior */
+}
+
+.about-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Limitar el ancho máximo */
+    height: auto; /* Altura basada en el contenido */
+}
+
+.about-left {
+    flex: 1; /* Ocupa el espacio disponible */
+    padding-right: 2rem; /* Espacio entre columnas */
+    display: flex;
+    align-items: center; /* Centrar verticalmente el h2 */
+    justify-content: center; /* Centrar horizontalmente el h2 */
+}
+
+.about-left h2 {
+    font-size: 3rem; /* Tamaño del título */
+    font-weight: bold;
+    text-align: center;
+}
+
+.about-right {
+    flex: 2; /* Ocupa el doble de espacio que la izquierda */
+    padding-left: 2rem; /* Espacio entre columnas */
+    display: flex;
+    flex-direction: column; /* Alinear párrafos verticalmente */
+    justify-content: center; /* Centrar verticalmente el texto */
+}
+
+.about-right p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem; /* Espacio entre párrafos */
 }
 
 /* Estilos responsivos */

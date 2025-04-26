@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const countdown = document.getElementById('countdown');
     const menuBtn = document.getElementById('menu-btn');
     const navOverlay = document.getElementById('nav-overlay');
+    const heroVideo = document.getElementById('hero-video');
+    const aboutSection = document.querySelector('.about-section');
     
     // Animación de intro inicial
     let count = 100;
@@ -86,5 +88,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar la imagen de inicio por defecto
     showImage('inicio');
 
+    // Efecto de parallax y transición suave al hacer scroll
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        
+        // Efecto parallax en el video del hero
+        if (scrollPosition < window.innerHeight) {
+            heroVideo.style.transform = `translateX(-50%) translateY(calc(-50% + ${scrollPosition * 0.1}px))`;
+            heroVideo.style.opacity = 1 - (scrollPosition / (window.innerHeight * 0.8));
+        }
+        
+        // Mostrar/ocultar el botón de menú según la posición del scroll
+        if (scrollPosition > 100) {
+            menuBtn.style.opacity = '0.8';
+        } else {
+            menuBtn.style.opacity = '1';
+        }
+    });
     
+    // Añadir enlaces de navegación para la sección about
+    document.querySelector('.main-nav a[data-image="acerca"]').addEventListener('click', (e) => {
+        e.preventDefault();
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+    });
 });
