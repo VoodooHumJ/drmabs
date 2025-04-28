@@ -1,6 +1,86 @@
 // Chatbot especializado en traumatología para el Dr. Marco Bolaños
 // Aseguramos que el chatbot se inicialice correctamente tanto en vista previa como al abrir el archivo directamente
 window.addEventListener('load', () => {
+    // Crear el contenedor del chatbot si no existe
+    if (!document.querySelector('.chatbot-container')) {
+        createChatbotInterface();
+    }
+    
+    // Función para crear la interfaz del chatbot
+    function createChatbotInterface() {
+        // Crear el contenedor principal
+        const chatbotContainer = document.createElement('div');
+        chatbotContainer.className = 'chatbot-container';
+        
+        // Crear el botón del chatbot
+        const chatbotButton = document.createElement('div');
+        chatbotButton.className = 'chatbot-button';
+        chatbotButton.innerHTML = '<i class="fas fa-comment-medical"></i>';
+        
+        // Crear la ventana del chatbot
+        const chatbotWindow = document.createElement('div');
+        chatbotWindow.className = 'chatbot-window';
+        
+        // Añadir elementos al DOM
+        chatbotContainer.appendChild(chatbotButton);
+        chatbotContainer.appendChild(chatbotWindow);
+        document.body.appendChild(chatbotContainer);
+        
+        // Configurar la ventana del chatbot (se completará más adelante)
+        setupChatbotWindow(chatbotWindow);
+        
+        // Añadir evento de clic al botón
+        chatbotButton.addEventListener('click', () => {
+            chatbotWindow.style.opacity = '1';
+            chatbotWindow.style.transform = 'translateY(0)';
+            chatbotWindow.style.pointerEvents = 'auto';
+        });
+    }
+    
+    // Función para configurar la ventana del chatbot
+    function setupChatbotWindow(chatbotWindow) {
+        // Crear el encabezado
+        const header = document.createElement('div');
+        header.className = 'chatbot-header';
+        header.innerHTML = `
+            <div class="chatbot-title">
+                <i class="fas fa-user-md"></i>
+                <span>Dr. Marco Bolaños - Asistente Virtual</span>
+            </div>
+            <div class="chatbot-close">
+                <i class="fas fa-times"></i>
+            </div>
+        `;
+        
+        // Crear el área de mensajes
+        const messagesArea = document.createElement('div');
+        messagesArea.className = 'chatbot-messages';
+        
+        // Crear el área de sugerencias
+        const suggestionsArea = document.createElement('div');
+        suggestionsArea.className = 'chatbot-suggestions';
+        
+        // Crear el área de entrada
+        const inputArea = document.createElement('div');
+        inputArea.className = 'chatbot-input';
+        inputArea.innerHTML = `
+            <input type="text" placeholder="Escribe tu consulta aquí...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        `;
+        
+        // Añadir elementos a la ventana
+        chatbotWindow.appendChild(header);
+        chatbotWindow.appendChild(messagesArea);
+        chatbotWindow.appendChild(suggestionsArea);
+        chatbotWindow.appendChild(inputArea);
+        
+        // Añadir evento para cerrar la ventana
+        header.querySelector('.chatbot-close').addEventListener('click', () => {
+            chatbotWindow.style.opacity = '0';
+            chatbotWindow.style.transform = 'translateY(20px)';
+            chatbotWindow.style.pointerEvents = 'none';
+        });
+    }
     // Base de conocimientos sobre traumatología y traumatología deportiva
     const knowledgeBase = {
         // Síntomas comunes y sus posibles causas
@@ -205,45 +285,31 @@ window.addEventListener('load', () => {
         'Rehabilitación': 'rehabilitacion'
     };
 
-    // Crear elementos del chatbot
-    const body = document.querySelector('body');
+    // Obtener referencias a los elementos del chatbot
+    // Usamos los elementos creados en createChatbotInterface
+    const chatbotContainer = document.querySelector('.chatbot-container');
+    const chatbotWindow = document.querySelector('.chatbot-window');
     
-    // Contenedor principal
-    const chatbotContainer = document.createElement('div');
-    chatbotContainer.className = 'chatbot-container';
-    
-    // Botón para abrir el chat
-    const chatbotButton = document.createElement('div');
-    chatbotButton.className = 'chatbot-button';
-    chatbotButton.innerHTML = '<i class="fas fa-comment-medical"></i>';
-    
-    // Ventana del chat
-    const chatbotWindow = document.createElement('div');
-    chatbotWindow.className = 'chatbot-window';
-    
-    // Estructura interna de la ventana
-    chatbotWindow.innerHTML = `
-        <div class="chatbot-header">
-            <div class="chatbot-title">
-                <img src="img/favicon.png" alt="Dr. Bolaños">
-                <span>Asistente Dr. Bolaños</span>
+    // Actualizar la estructura interna de la ventana si es necesario
+    if (chatbotWindow) {
+        chatbotWindow.innerHTML = `
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <img src="img/favicon.png" alt="Dr. Bolaños">
+                    <span>Asistente Dr. Bolaños</span>
+                </div>
+                <div class="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </div>
             </div>
-            <div class="chatbot-close">
-                <i class="fas fa-times"></i>
+            <div class="chatbot-messages" id="chatbot-messages"></div>
+            <div class="chatbot-suggestions" id="chatbot-suggestions"></div>
+            <div class="chatbot-input">
+                <input type="text" id="user-input" placeholder="Escribe tu consulta aquí...">
+                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
             </div>
-        </div>
-        <div class="chatbot-messages" id="chatbot-messages"></div>
-        <div class="chatbot-suggestions" id="chatbot-suggestions"></div>
-        <div class="chatbot-input">
-            <input type="text" id="user-input" placeholder="Escribe tu consulta aquí...">
-            <button id="send-button"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    `;
-    
-    // Añadir elementos al DOM
-    chatbotContainer.appendChild(chatbotButton);
-    chatbotContainer.appendChild(chatbotWindow);
-    body.appendChild(chatbotContainer);
+        `;
+    }
     
     // Referencias a elementos del DOM
     const messagesContainer = document.getElementById('chatbot-messages');
