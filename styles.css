@@ -111,7 +111,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #121212;
+    background-color: rgba(26, 26, 26, 0.98);
     color: #edefef;
     display: flex;
     justify-content: center;
@@ -163,7 +163,6 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-top: 8rem;
     padding: 8rem;
     text-align: right;
 }
@@ -188,6 +187,7 @@ body {
     left: -10%;
     top: 50%;
     transform: translateY(-50%);
+    text-align: right;
 }
 
 .main-nav ul {
@@ -207,7 +207,7 @@ body {
     position: relative;
     padding-bottom: 5px;
     line-height: 0;
-    text-align: left;
+    text-align: right;
     display: inline-block;
 }
 
@@ -222,11 +222,11 @@ body {
 /* Estilos del pie de página de navegación */
 .nav-footer {
     position: absolute;
-    
+    bottom: 2rem;
     left: 0;
     width: 100%;
     text-align: right; /* Alineado a la derecha inicialmente */
-    padding-right: 0rem; /* Mismo padding que nav-left */
+    padding-right: 2rem; /* Padding ajustado */
     color: #999; /* Color de texto más tenue */
     font-size: 2rem;
 }
@@ -390,6 +390,8 @@ body {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1rem; /* Espacio entre párrafos */
+    text-align: right; /* Alinear a la derecha */
+    word-wrap: break-word; /* Evitar desbordamiento */
 }
 
 /* Estilos responsivos */
@@ -398,9 +400,15 @@ body {
         flex-direction: column;
     }
     
-    .nav-left, .nav-right {
+    .nav-left {
         width: 100%;
-        height: 50%;
+        height: auto;
+        padding: 4rem;
+        text-align: right;
+    }
+    
+    .nav-right {
+        display: none; /* Ocultar nav-right en dispositivos medianos */
     }
     
     .main-nav {
@@ -409,10 +417,17 @@ body {
         left: 0;
         top: 0;
         transform: none;
+        text-align: right;
     }
     
-    .nav-image {
-        max-height: 400px;
+    .main-nav a {
+        text-align: right;
+    }
+    
+    .nav-footer {
+        font-size: 1.5rem;
+        text-align: right;
+        padding-right: 2rem;
     }
 }
 
@@ -421,22 +436,35 @@ body {
         font-size: 5rem;
     }
     
+    .nav-left {
+        padding: 3rem;
+        text-align: right;
+    }
+    
     .main-nav {
         width: 100%;
         left: 0;
+        text-align: right;
     }
     
     .main-nav a {
         font-size: 1.5rem;
+        text-align: right;
     }
     
-    .nav-image {
-        max-width: 400px;
-        max-height: 300px;
+    .main-nav li {
+        text-align: right;
+    }
+    
+    .nav-footer {
+        font-size: 1.2rem;
+        text-align: right;
+        padding-right: 1.5rem;
     }
     
     .social-icons {
         padding: 1rem 0;
+        justify-content: flex-end;
     }
     
     .social-icon {
@@ -452,8 +480,35 @@ body {
         font-size: 3rem;
     }
     
+    .nav-container {
+        flex-direction: column;
+    }
+    
+    .nav-left {
+        width: 100%;
+        padding: 1.5rem;
+        text-align: right;
+    }
+    
+    .nav-right {
+        display: none; /* Ocultar completamente en dispositivos pequeños */
+    }
+    
+    .main-nav {
+        width: 100%;
+        left: 0;
+        text-align: right;
+    }
+    
     .main-nav a {
         font-size: 1.2rem;
+        text-align: right;
+        padding-right: 0;
+    }
+    
+    .main-nav li {
+        margin-bottom: 1.2rem;
+        text-align: right;
     }
     
     .menu-btn {
@@ -465,20 +520,39 @@ body {
         font-size: 18px;
     }
     
-    .nav-image {
-        max-width: 300px;
-        max-height: 200px;
+    .nav-footer {
+        font-size: 0.8rem;
+        text-align: right;
+        padding-right: 0.5rem;
+        bottom: 1rem;
+    }
+    
+    .nav-footer .privacy-terms a {
+        font-size: 0.6rem;
     }
     
     .social-icons {
         flex-wrap: wrap;
-        padding: 0.8rem 0;
+        padding: 0.6rem 0;
+        justify-content: flex-end;
     }
     
     .social-icon {
-        width: 35px;
-        height: 35px;
-        margin: 5px;
-        font-size: 0.9rem;
+        width: 30px;
+        height: 30px;
+        margin: 4px;
+        font-size: 0.8rem;
+    }
+    
+    /* Asegurar que los textos largos se ajusten correctamente */
+    p, h1, h2, h3, h4, h5, h6 {
+        text-align: right;
+    }
+    
+    /* Ajustar el ancho del texto para evitar desbordamiento */
+    .about-right p {
+        text-align: right;
+        width: 100%;
+        word-wrap: break-word;
     }
 }
