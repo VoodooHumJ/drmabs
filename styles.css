@@ -439,6 +439,7 @@ body {
     .nav-left {
         padding: 3rem;
         text-align: right;
+        display: none;
     }
     
     .main-nav {
@@ -482,12 +483,14 @@ body {
     
     .nav-container {
         flex-direction: column;
+        
     }
     
     .nav-left {
         width: 100%;
         padding: 1.5rem;
         text-align: right;
+        display: none;
     }
     
     .nav-right {
