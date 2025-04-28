@@ -550,6 +550,7 @@ body {
     /* Asegurar que los textos largos se ajusten correctamente */
     p, h1, h2, h3, h4, h5, h6 {
         text-align: right;
+        line-height: 1.2;
     }
     
     /* Ajustar el ancho del texto para evitar desbordamiento */
