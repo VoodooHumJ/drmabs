@@ -399,6 +399,10 @@ body {
     .nav-container {
         flex-direction: column;
     }
+
+    .about-container {
+        display: none;
+    }
     
     .nav-left {
         width: 100%;
@@ -480,6 +484,10 @@ body {
     .countdown {
         font-size: 3rem;
     }
+
+    .about-container {
+        display: none;
+    }
     
     .nav-container {
         flex-direction: column;
@@ -548,6 +556,7 @@ body {
         margin: 4px;
         font-size: 0.8rem;
     }
+    
     
     /* Asegurar que los textos largos se ajusten correctamente */
     p, h1, h2, h3, h4, h5, h6 {
