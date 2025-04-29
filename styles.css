@@ -93,7 +93,7 @@ body {
 .countdown {
     font-size: 6rem;
     color: #edefef;
-    font-weight: 800;
+    font-weight: bold;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
