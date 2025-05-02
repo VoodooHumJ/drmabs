@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Futura:wght@400;700&display=swap">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="chatbot.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
             <!-- Reemplaza 'your-video.mp4' con la URL o ruta de tu video -->
             <source src="https://videos.pexels.com/video-files/7584438/7584438-uhd_2732_1440_25fps.mp4" type="video/mp4">
 
-            
+            Tu navegador no soporta la etiqueta de video.
         </video>
         <div class="hero-content">
             <!-- Puedes añadir contenido sobre el video aquí si lo deseas -->
@@ -70,22 +71,197 @@
         </div>
     </div>
 
-    <section class="about-section">
-        <div class="about-container">
-            <div class="about-left">
-                <h2>Acerca del Dr. M. A. Bolaños S.</h2>
+   
+    <!-- Sección de Consejos Traumatológicos -->
+    <section class="blog-section" id="blog-section">
+        <div class="blog-container">
+            <h2 class="blog-title">CONSEJOS TRAUMATOLÓGICOS</h2>
+            <h3 class="blog-subtitle">Cuida tu salud articular con los expertos</h3>
+            
+            <div class="blog-filter">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="traumatologia-general">Traumatología General</button>
+                <button class="filter-btn" data-filter="traumatologia-deportiva">Traumatología Deportiva</button>
+                <button class="filter-btn" data-filter="artroscopia">Artroscopía</button>
+                <button class="filter-btn" data-filter="rehabilitacion">Rehabilitación</button>
+                <button class="filter-btn" data-filter="prevencion">Prevención</button>
             </div>
-            <div class="about-right">
+            
+            <div class="blog-grid">
+                <!-- Artículo 1 -->
+                <div class="blog-card" data-category="traumatologia-deportiva">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Traumatología Deportiva</span>
+                        <h4 class="blog-card-title">Lesiones comunes en deportistas amateur</h4>
+                        <p class="blog-date">15 de Junio, 2023</p>
+                        <div class="blog-text">
+                            <p>Las lesiones deportivas son muy comunes en deportistas amateur que no siguen un entrenamiento adecuado. Entre las más frecuentes encontramos esguinces de tobillo, tendinitis rotuliana y desgarros musculares...</p>
+                            <div class="blog-text-expanded">
+                                <p>Estas lesiones suelen ocurrir por falta de calentamiento adecuado, técnica incorrecta o sobreesfuerzo. Es fundamental realizar un calentamiento progresivo antes de cualquier actividad física intensa, así como fortalecer la musculatura que protege las articulaciones más vulnerables.</p>
+                                <p>Consultar con un especialista ante los primeros síntomas puede prevenir lesiones crónicas y acortar significativamente el tiempo de recuperación.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
                 
+                <!-- Artículo 2 -->
+                <div class="blog-card" data-category="artroscopia">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Artroscopía</span>
+                        <h4 class="blog-card-title">Ventajas de la cirugía artroscópica</h4>
+                        <p class="blog-date">3 de Mayo, 2023</p>
+                        <div class="blog-text">
+                            <p>La artroscopía es una técnica quirúrgica mínimamente invasiva que permite diagnosticar y tratar problemas articulares con mayor precisión y menor tiempo de recuperación...</p>
+                            <div class="blog-text-expanded">
+                                <p>Entre sus principales ventajas destacan: incisiones más pequeñas, menor dolor postoperatorio, menor riesgo de infección y recuperación más rápida. Esta técnica es especialmente útil para tratar lesiones de menisco, ligamentos cruzados y problemas de cartílago articular.</p>
+                                <p>Los pacientes suelen experimentar una mejora significativa en su movilidad y calidad de vida tras este tipo de intervenciones.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
                 
+                <!-- Artículo 3 -->
+                <div class="blog-card" data-category="prevencion">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Prevención</span>
+                        <h4 class="blog-card-title">Ejercicios para prevenir dolor de rodilla</h4>
+                        <p class="blog-date">20 de Abril, 2023</p>
+                        <div class="blog-text">
+                            <p>El dolor de rodilla afecta a personas de todas las edades y puede prevenirse con ejercicios específicos que fortalecen los músculos estabilizadores de la articulación...</p>
+                            <div class="blog-text-expanded">
+                                <p>Los ejercicios más recomendados incluyen sentadillas controladas, extensiones de pierna, elevaciones laterales y ejercicios de equilibrio. Es importante realizarlos con técnica correcta y de forma progresiva para evitar sobrecargas.</p>
+                                <p>Complementar estos ejercicios con estiramientos adecuados y mantener un peso saludable son factores clave para la salud de las rodillas a largo plazo.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
+                
+                <!-- Artículo 4 -->
+                <div class="blog-card" data-category="traumatologia-general">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Traumatología General</span>
+                        <h4 class="blog-card-title">Mitos y realidades sobre la artrosis</h4>
+                        <p class="blog-date">8 de Marzo, 2023</p>
+                        <div class="blog-text">
+                            <p>Existen numerosos mitos sobre la artrosis que pueden llevar a decisiones incorrectas en su tratamiento. Es importante conocer la información basada en evidencia científica...</p>
+                            <div class="blog-text-expanded">
+                                <p>Contrario a la creencia popular, la artrosis no es simplemente una consecuencia inevitable del envejecimiento. Factores como la genética, lesiones previas, obesidad y actividades repetitivas juegan un papel fundamental en su desarrollo.</p>
+                                <p>Asimismo, el ejercicio moderado no empeora la artrosis, sino que puede ayudar a fortalecer las articulaciones y reducir el dolor cuando se realiza de manera adecuada.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
+                
+                <!-- Artículo 5 -->
+                <div class="blog-card" data-category="rehabilitacion">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Rehabilitación</span>
+                        <h4 class="blog-card-title">Recuperación tras prótesis de cadera</h4>
+                        <p class="blog-date">15 de Febrero, 2023</p>
+                        <div class="blog-text">
+                            <p>La cirugía de reemplazo de cadera es uno de los procedimientos más exitosos en traumatología. El proceso de rehabilitación es fundamental para obtener resultados óptimos...</p>
+                            <div class="blog-text-expanded">
+                                <p>La rehabilitación suele comenzar el mismo día de la cirugía con ejercicios simples de movilización. Progresivamente, se incorporan ejercicios de fortalecimiento y equilibrio bajo supervisión profesional.</p>
+                                <p>La mayoría de los pacientes pueden retomar sus actividades cotidianas entre 6 y 12 semanas después de la intervención, aunque la recuperación completa puede llevar hasta 6 meses.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
+                
+                <!-- Artículo 6 -->
+                <div class="blog-card" data-category="traumatologia-deportiva">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Traumatología Deportiva</span>
+                        <h4 class="blog-card-title">Tratamiento de lesiones de ligamento cruzado</h4>
+                        <p class="blog-date">5 de Enero, 2023</p>
+                        <div class="blog-text">
+                            <p>La rotura del ligamento cruzado anterior (LCA) es una de las lesiones más temidas por los deportistas. Las opciones de tratamiento han evolucionado significativamente en los últimos años...</p>
+                            <div class="blog-text-expanded">
+                                <p>El tratamiento puede ser conservador o quirúrgico, dependiendo de factores como la edad del paciente, nivel de actividad física y grado de inestabilidad de la rodilla. La reconstrucción artroscópica del LCA ofrece excelentes resultados en pacientes activos.</p>
+                                <p>La rehabilitación postoperatoria es tan importante como la cirugía misma, y suele durar entre 6 y 9 meses para lograr un retorno seguro a la actividad deportiva.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
+                
+                <!-- Artículo 7 -->
+                <div class="blog-card" data-category="prevencion">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Prevención</span>
+                        <h4 class="blog-card-title">Cuidados de la columna en el trabajo</h4>
+                        <p class="blog-date">10 de Diciembre, 2022</p>
+                        <div class="blog-text">
+                            <p>Los problemas de columna relacionados con el trabajo son una causa frecuente de consulta traumatológica. La ergonomía y los hábitos posturales correctos son fundamentales para prevenirlos...</p>
+                            <div class="blog-text-expanded">
+                                <p>Mantener una postura adecuada, realizar pausas activas cada hora, ajustar correctamente la altura de la silla y monitor, y utilizar soportes lumbares cuando sea necesario son medidas efectivas para prevenir el dolor de espalda.</p>
+                                <p>Complementar estas medidas con ejercicios de fortalecimiento del core y estiramientos regulares puede reducir significativamente el riesgo de lesiones crónicas.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
+                
+                <!-- Artículo 8 -->
+                <div class="blog-card" data-category="artroscopia">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Artroscopía</span>
+                        <h4 class="blog-card-title">Artroscopía de hombro: indicaciones y resultados</h4>
+                        <p class="blog-date">25 de Noviembre, 2022</p>
+                        <div class="blog-text">
+                            <p>La artroscopía de hombro permite tratar diversas patologías como lesiones del manguito rotador, inestabilidad glenohumeral y lesiones del labrum con mínima invasión...</p>
+                            <div class="blog-text-expanded">
+                                <p>Esta técnica ofrece ventajas significativas frente a la cirugía abierta tradicional, como menor dolor postoperatorio, menor riesgo de rigidez y cicatrices más pequeñas. Los resultados suelen ser excelentes en pacientes bien seleccionados.</p>
+                                <p>La rehabilitación postoperatoria es fundamental y debe ser personalizada según el tipo de lesión tratada y las características individuales del paciente.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
+                
+                <!-- Artículo 9 -->
+                <div class="blog-card" data-category="rehabilitacion">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Rehabilitación</span>
+                        <h4 class="blog-card-title">Importancia de la fisioterapia en traumatología</h4>
+                        <p class="blog-date">5 de Noviembre, 2022</p>
+                        <div class="blog-text">
+                            <p>La fisioterapia es un componente esencial en el tratamiento integral de las lesiones traumatológicas. Su papel va mucho más allá de la simple recuperación de movilidad...</p>
+                            <div class="blog-text-expanded">
+                                <p>Un programa de fisioterapia bien diseñado puede acelerar la recuperación, reducir el dolor, prevenir complicaciones y mejorar la funcionalidad a largo plazo. La combinación de técnicas manuales, ejercicios terapéuticos y agentes físicos permite abordar cada caso de manera personalizada.</p>
+                                <p>La colaboración estrecha entre traumatólogo y fisioterapeuta es clave para optimizar los resultados del tratamiento y garantizar una recuperación completa.</p>
+                            </div>
+                        </div>
+                        <button class="read-more-btn">Leer más</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
-    
-    
-    
-    
+    <!-- Footer con logo y redes sociales -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="img/logo.jpg" alt="Dr. Marco Bolaños Solares" class="footer-logo-img">
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Dr. Marco Bolaños Solares. Todos los derechos reservados.</p>
+        </div>
+    </footer>
     
     <script src="script.js"></script>
     <script src="chatbot.js"></script>

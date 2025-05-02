@@ -42,19 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(chatbotToggle);
 
         // Contenedor principal del chatbot
+        // En la función createChatbotElements, actualizar el HTML del contenedor
         const chatbotContainer = document.createElement('div');
         chatbotContainer.className = 'chatbot-container';
         chatbotContainer.innerHTML = `
             <div class="chatbot-header">
-                <h3>Asistente Virtual Dr. Bolaños</h3>
+                <div class="chatbot-avatar">👨⚕️</div>
+                <h3>Asistente Virtual - Dr. Bolaños</h3>
                 <button class="chatbot-close"><i class="fas fa-times"></i></button>
             </div>
             <div class="chatbot-messages"></div>
+            <div class="quick-options"></div>
             <div class="chatbot-input-container">
-                <input type="text" class="chatbot-input" placeholder="Escribe tu pregunta aquí...">
+                <input type="text" class="chatbot-input" placeholder="Escribe tu consulta aquí...">
                 <button class="chatbot-submit"><i class="fas fa-paper-plane"></i></button>
             </div>
         `;
+        
+        // Nueva función para crear botones de opción rápida
+        const createQuickOptions = (options) => {
+            const container = chatbot.container.querySelector('.quick-options');
+            container.innerHTML = options.map(opt => 
+                `<button class="quick-option" data-question="${opt}">${opt}</button>`
+            ).join('');
+        };
         document.body.appendChild(chatbotContainer);
 
         return {
@@ -84,20 +95,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const contactInfo = document.createElement('div');
         contactInfo.className = 'contact-info';
         contactInfo.innerHTML = `
-            <p><strong>¿Necesitas atención personalizada?</strong></p>
-            <p>WhatsApp: <a href="https://wa.me/591 62364446" target="_blank">59162364446</a></p>
-            <p>Consultorio: <a href="tel:+59122152014">2 215 2014</a></p>
-            <p>Emergencias: <a href="tel:+59177593335">775 93335</a></p>
-            <p>Dirección: Avenida 6 de agosto, esquina Cordero, Edif. Mercurio, Piso 6, La Paz - Bolivia</p>
+            <p>📌 <strong>¿Necesitas una consulta presencial o por videollamada?</strong></p>
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/59162364446" target="_blank">Escríbenos por WhatsApp</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+59122152014">2 215 2014 (Consultorio)</a>
+            </div>
+            <div class="contact-item emergency">
+                <i class="fas fa-ambulance"></i>
+                <a href="tel:+59177593335">775 93335 (Emergencias 24h)</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Av. 6 de Agosto esq. Cordero<br>Edif. Mercurio Piso 6, La Paz</span>
+            </div>
         `;
         chatbot.messages.appendChild(contactInfo);
         chatbot.messages.scrollTop = chatbot.messages.scrollHeight;
     };
 
     // Función para procesar la entrada del usuario y generar respuesta
+    // Modificar processUserInput
     const processUserInput = (userInput) => {
-        // Convertir a minúsculas para facilitar la búsqueda
         const input = userInput.toLowerCase();
+        
+        // Verificar saludos/despedidas primero
+        const socialKeywords = ['hola', 'buenos dias', 'buenas tardes', 'gracias', 'adios', 'chao'];
+        for (const keyword of socialKeywords) {
+            if (input === keyword) {
+                addMessage(knowledgeBase[keyword], false);
+                if (keyword === 'adios' || keyword === 'chao') {
+                    setTimeout(() => showContactInfo(), 1000);
+                }
+                return;
+            }
+        }
         
         // Buscar coincidencias en la base de conocimientos
         let response = null;
@@ -136,6 +171,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Actualizar el mensaje de bienvenida inicial
+    addMessage(`¡Hola! Soy el Asistente virtual del Dr. Bolaños 🩺 ¿En qué puedo ayudarte hoy? Puedes:
+    - Escribir tu consulta libremente ✍️
+    - Elegir un tema de estos 👇
+    - Preguntar por síntomas específicos 😖
+    
+    Temas principales:
+    1. Artroscopía y cirugías mínimamente invasivas
+    2. Prótesis articulares (cadera/rodilla/hombro)
+    3. Lesiones deportivas 🏃♀️
+    4. Dolor articular 😣
+    5. Cuidados para adultos mayores 👵👴`);
+
     // Manejar envío de mensaje
     const handleSubmit = () => {
         const userInput = chatbot.input.value.trim();
@@ -172,3 +220,35 @@ document.addEventListener('DOMContentLoaded', () => {
         chatbot.container.classList.remove('active');
     });
 });
+
+
+const knowledgeBase = {
+    // Nuevas interacciones sociales
+    'hola': '¡Hola! 👋 Soy el asistente virtual del Dr. Bolaños. ¿En qué puedo ayudarte hoy? Puedes preguntar sobre:\n- Artroscopía 🏥\n- Prótesis articulares 🦵\n- Lesiones deportivas ⚽\n- Dolor articular 😣\n¿Por dónde empezamos?',
+    'buenos dias': '¡Buenos días! ☀️ ¿Cómo te puedo ayudar hoy con tu consulta traumatológica?',
+    'buenas tardes': '¡Buenas tardes! 🌇 Cuéntame, ¿qué síntomas o inquietudes tienes?',
+    'gracias': '¡De nada! 😊 Si tienes más dudas, no hesites en preguntar. ¿Necesitas información adicional sobre algún tema en particular?',
+    'adios': '¡Hasta luego! 👋 Recuerda que puedes contactarnos directamente:\n📞 Consultorio: 2 215 2014\n🚑 Emergencias: 775 93335\n📍 Edif. Mercurio Piso 6, La Paz\n¡Que tengas un excelente día!',
+
+    // Respuesta mejorada para despedida
+    'chao': '¡Nos vemos! 👋 Si necesitas más ayuda, aquí estoy. No olvides nuestros contactos:\n📱 WhatsApp: 59162364446\n🏥 Consultas programadas: 2 215 2014\n¡Cuídate mucho! 💪',
+    
+    'artroscopia': `¡Hola! 😊 La artroscopía es como una "cirugía de mínima invasión" donde usamos una pequeña cámara para revisar y reparar tus articulaciones. ¿Te gustaría saber sobre:
+    - Recuperación post-cirugía 🩹
+    - Tiempos de rehabilitación ⏳
+    - Casos que requieren esta técnica? 👇`,
+    
+    'protesis': `Entiendo que quieres saber sobre prótesis. ¿Qué articulación te interesa?
+    👉 Cadera 🏃♂️
+    👉 Rodilla 🦵
+    👉 Hombro 💪
+    ¿O prefieres saber sobre duración y cuidados? ⌛`,
+    
+    // Resto del conocimiento actualizado con formato similar...
+};
+
+// Añadir función para manejar opciones rápidas
+const handleQuickOption = (question) => {
+    chatbot.input.value = question;
+    handleSubmit();
+};

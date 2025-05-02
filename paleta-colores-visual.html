@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta de Colores - Dr. Marco Bolaños Solares</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Futura', 'Trebuchet MS', 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #121212;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #121212;
+            color: #edefef;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #3498DB;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 30px 0 15px;
+            color: #2C3E50;
+            border-bottom: 2px solid #2C3E50;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin: 20px 0 10px;
+            color: #2C3E50;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .color-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .color-sample {
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 3px rgba(0,0,0,0.5);
+        }
+        
+        .color-info {
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .color-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .color-hex {
+            font-family: monospace;
+            color: #666;
+        }
+        
+        .application-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .button-examples {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: #3498DB;
+        }
+        
+        .btn-secondary {
+            background-color: #95A5A6;
+        }
+        
+        .btn-success {
+            background-color: #27AE60;
+        }
+        
+        .btn-danger {
+            background-color: #E74C3C;
+        }
+        
+        .text-examples {
+            margin: 20px 0;
+        }
+        
+        .text-primary {
+            color: #2C3E50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .text-secondary {
+            color: #95A5A6;
+        }
+        
+        .text-accent {
+            color: #3498DB;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .comparison-card {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .current {
+            background-color: #121212;
+            color: #edefef;
+        }
+        
+        .proposed {
+            background-color: #2C3E50;
+            color: #edefef;
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background-color: #121212;
+            color: #edefef;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Paleta de Colores</h1>
+        <p>Dr. Marco Bolaños Solares | Traumatología y Artroscopía</p>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Paleta Propuesta</h2>
+            <p>Esta paleta de colores ha sido diseñada para mantener la elegancia y profesionalismo del sitio actual, añadiendo elementos distintivos que refuerzan la identidad visual médica.</p>
+            
+            <h3>Colores Base</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: #121212;">#121212</div>
+                    <div class="color-info">
+                        <div class="color-name">Negro/Gris Oscuro</div>
+                        <div class="color-hex">#121212</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: #edefef; color: #121212;">#edefef</div>
+                    <div class="color-info">
+                        <div class="color-name">Blanco/Gris Claro</div>
+                        <div class="color-hex">#edefef</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Colores Primarios</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: #2C3E50;">#2C3E50</div>
+                    <div class="color-info">
+                        <div class="color-name">Azul Médico</div>
+                        <div class="color-hex">#2C3E50</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: #3498DB;">#3498DB</div>
+                    <div class="color-info">
+                        <div class="color-name">Azul Claro</div>
+                        <div class="color-hex">#3498DB</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Colores Secundarios</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: #27AE60;">#27AE60</div>
+                    <div class="color-info">
+                        <div class="color-name">Verde Suave</div>
+                        <div class="color-hex">#27AE60</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: #95A5A6;">#95A5A6</div>
+                    <div class="color-info">
+                        <div class="color-name">Gris Azulado</div>
+                        <div class="color-hex">#95A5A6</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Color de Acento</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-sample" style="background-color: #E74C3C;">#E74C3C</div>
+                    <div class="color-info">
+                        <div class="color-name">Rojo Suave</div>
+                        <div class="color-hex">#E74C3C</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="application-section">
+            <h2>Aplicación de la Paleta</h2>
+            
+            <h3>Ejemplos de Botones</h3>
+            <div class="button-examples">
+                <button class="btn btn-primary">Botón Principal</button>
+                <button class="btn btn-secondary">Botón Secundario</button>
+                <button class="btn btn-success">Botón Éxito</button>
+                <button class="btn btn-danger">Botón Alerta</button>
+            </div>
+            
+            <h3>Ejemplos de Texto</h3>
+            <div class="text-examples">
+                <p class="text-primary">Texto principal - Títulos y encabezados</p>
+                <p class="text-secondary">Texto secundario - Información complementaria</p>
+                <p class="text-accent">Texto de acento - Enlaces y elementos destacados</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Comparación</h2>
+            <div class="comparison">
+                <div class="comparison-card current">
+                    <h3>Diseño Actual</h3>
+                    <p>Paleta monocromática basada en tonos de negro, blanco y grises.</p>
+                    <p>Transmite profesionalismo y seriedad, pero carece de elementos distintivos.</p>
+                </div>
+                <div class="comparison-card proposed">
+                    <h3 style="color: #3498DB;">Diseño Propuesto</h3>
+                    <p>Mantiene la base monocromática añadiendo tonos azules y verdes.</p>
+                    <p>Refuerza la identidad médica con colores que transmiten confianza y bienestar.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="application-section">
+            <h2>Beneficios de la Nueva Paleta</h2>
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li style="margin-bottom: 10px; position: relative;">
+                    <span style="color: #3498DB; position: absolute; left: -20px;">✓</span> 
+                    <strong>Mantiene la profesionalidad</strong> del diseño actual
+                </li>
+                <li style="margin-bottom: 10px; position: relative;">
+                    <span style="color: #3498DB; position: absolute; left: -20px;">✓</span> 
+                    <strong>Añade personalidad y reconocimiento</strong> a través de colores distintivos
+                </li>
+                <li style="margin-bottom: 10px; position: relative;">
+                    <span style="color: #3498DB; position: absolute; left: -20px;">✓</span> 
+                    <strong>Mejora la jerarquía visual</strong> y la experiencia de usuario
+                </li>
+                <li style="margin-bottom: 10px; position: relative;">
+                    <span style="color: #3498DB; position: absolute; left: -20px;">✓</span> 
+                    <strong>Transmite valores médicos</strong> como confianza, tranquilidad y bienestar
+                </li>
+                <li style="margin-bottom: 10px; position: relative;">
+                    <span style="color: #3498DB; position: absolute; left: -20px;">✓</span> 
+                    <strong>Proporciona mayor flexibilidad</strong> para diferenciar secciones y elementos
+                </li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Propuesta de Paleta de Colores para Dr. Marco Bolaños Solares</p>
+        <p>Traumatología y Artroscopía</p>
+    </footer>
+</body>
+</html>

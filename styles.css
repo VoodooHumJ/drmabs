@@ -16,8 +16,8 @@ html::-webkit-scrollbar {
 
 body {
     font-family: 'Futura', 'Trebuchet MS', 'Arial', sans-serif;
-    background-color: rgba(26, 26, 26, 0.98);
-    color: #121212;
+    background-color: #2C3E50;
+    color: #edefef;
     overflow-x: hidden;
     /* Añadir margen lateral para que el contenido no esté pegado a los bordes */
     padding: 0 15px;
@@ -46,7 +46,7 @@ body {
     left: 0;
     width: 100%;
     height: 60%; /* Aumentado para un degradado más suave */
-    background: linear-gradient(to top, rgba(26, 26, 26, 0.98), transparent);
+    background: linear-gradient(to top, rgba(44, 62, 80, 0.98), transparent);
     z-index: 2; /* Asegura que el degradado esté sobre el video pero debajo de la sección about */
 }
 
@@ -78,7 +78,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #121212;
+    background-color: #2C3E50;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +92,7 @@ body {
 
 .countdown {
     font-size: 6rem;
-    color: #edefef;
+    color: #3498DB;
     font-weight: bold;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
@@ -111,7 +111,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: rgba(26, 26, 26, 0.98);
+    background-color: #2C3E50;
     color: #edefef;
     display: flex;
     justify-content: center;
@@ -138,7 +138,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #121212;
+    background-color: #2C3E50;
     z-index: 999;
     display: flex;
     justify-content: center;
@@ -163,6 +163,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding-top: 8rem;
     padding: 8rem;
     text-align: right;
 }
@@ -187,7 +188,6 @@ body {
     left: -10%;
     top: 50%;
     transform: translateY(-50%);
-    text-align: right;
 }
 
 .main-nav ul {
@@ -207,12 +207,12 @@ body {
     position: relative;
     padding-bottom: 5px;
     line-height: 0;
-    text-align: right;
+    text-align: left;
     display: inline-block;
 }
 
 .main-nav a:hover {
-    color: #999;
+    color: #3498DB;
 }
 
 
@@ -222,12 +222,12 @@ body {
 /* Estilos del pie de página de navegación */
 .nav-footer {
     position: absolute;
-    bottom: -8rem;
+    
     left: 0;
     width: 100%;
     text-align: right; /* Alineado a la derecha inicialmente */
-    padding-right: 2rem; /* Padding ajustado */
-    color: #999; /* Color de texto más tenue */
+    padding-right: 0rem; /* Mismo padding que nav-left */
+    color: #95A5A6; /* Color de texto más tenue */
     font-size: 2rem;
 }
 
@@ -247,14 +247,14 @@ body {
 }
 
 .nav-footer .privacy-terms a {
-    color: #ccc; /* Color ligeramente más brillante para enlaces */
+    color: #3498DB; /* Color ligeramente más brillante para enlaces */
     text-decoration: none;
     margin: 0 0.5rem;
     font-size: 0.8rem;
 }
 
 .nav-footer .privacy-terms a:hover {
-    color: #fff;
+    color: #27AE60;
 }
 
 .nav-image {
@@ -268,7 +268,7 @@ body {
     filter: blur(1px); 
     transition: filter 0.5s ease;
     margin-bottom: 1rem;
-    background-image: linear-gradient(to right, #121212, #222);
+    background-image: linear-gradient(to right, #2C3E50, #3498DB);
     background-size: cover;
     background-position: center;
 }
@@ -316,7 +316,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #121212;
+    background-color: #2C3E50;
     color: #fff;
     margin: 0 10px;
     text-decoration: none;
@@ -326,7 +326,7 @@ body {
 
 .social-icon:hover {
     transform: translateY(-5px);
-    background-color: #333;
+    background-color: #3498DB;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -338,60 +338,199 @@ body {
 }
 
 /* Estilos de la sección About */
-.about-section {
-    margin-top: 100vh; /* Empuja la sección hacia abajo para que no quede oculta por el hero fijo */
-    min-height: 100vh;
-    background-color: rgba(26, 26, 26, 0.98); /* Un color de fondo oscuro para cubrir el hero con alta opacidad */
-    color: #edefef; /* Texto claro sobre fondo oscuro */
+
+
+/* Estilos de la sección de blog */
+.blog-section {
+    position: relative;
+    padding: 100px 20px;
+    background-color: #f8f8f8;
+    z-index: 10;
+    margin-top: 100vh;
+}
+
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blog-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2C3E50;
+}
+
+.blog-subtitle {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #95A5A6;
+    font-weight: normal;
+}
+
+.blog-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 1px solid #2C3E50;
+    color: #2C3E50;
+    padding: 8px 16px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    font-size: 0.9rem;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: #3498DB;
+    color: #fff;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.blog-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card-content {
+    padding: 20px;
+}
+
+.blog-category {
+    display: inline-block;
+    background-color: #edefef;
+    color: #2C3E50;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.blog-card-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #2C3E50;
+}
+
+.blog-date {
+    color: #95A5A6;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.blog-text p {
+    color: #121212;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.blog-text-expanded {
+    display: none;
+    margin-top: 15px;
+}
+
+.blog-text.expanded .blog-text-expanded {
+    display: block;
+}
+
+.read-more-btn {
+    background-color: transparent;
+    border: none;
+    color: #3498DB;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    color: #27AE60;
+}
+
+/* Estilos del footer */
+.site-footer {
+    background-color: #2C3E50;
+    color: #edefef;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.footer-logo {
+    flex: 1;
     display: flex;
     align-items: center;
+}
+
+.footer-logo-img {
+    max-width: 180px;
+    height: auto;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social .social-icon {
+    display: flex;
     justify-content: center;
-    padding: 4rem 2rem; /* Añadir algo de padding */
-    position: relative; /* Necesario para el z-index */
-    z-index: 5; /* Aumentado para asegurar que esté sobre el hero y todos sus elementos */
-    width: calc(100% - 30px); /* Ajustar para el margen lateral */
-    margin-left: 15px; /* Margen izquierdo */
-    margin-right: 15px; /* Margen derecho */
-    border-radius: 50px 50px 0 0; /* Redondeado solo en la parte superior */
-    overflow: hidden; /* Asegura que el contenido no se desborde del contenedor */
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3); /* Sombra sutil en la parte superior */
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3498DB;
+    color: #fff;
+    margin: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
-.about-container {
-    display: flex;
-    width: 100%;
-    max-width: 1200px; /* Limitar el ancho máximo */
-    height: auto; /* Altura basada en el contenido */
+.footer-social .social-icon:hover {
+    transform: translateY(-5px);
+    background-color: #27AE60;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.about-left {
-    flex: 1; /* Ocupa el espacio disponible */
-    padding-right: 2rem; /* Espacio entre columnas */
-    display: flex;
-    align-items: center; /* Centrar verticalmente el h2 */
-    justify-content: center; /* Centrar horizontalmente el h2 */
-}
-
-.about-left h2 {
-    font-size: 3rem; /* Tamaño del título */
-    font-weight: bold;
+.footer-bottom {
     text-align: center;
-}
-
-.about-right {
-    flex: 2; /* Ocupa el doble de espacio que la izquierda */
-    padding-left: 2rem; /* Espacio entre columnas */
-    display: flex;
-    flex-direction: column; /* Alinear párrafos verticalmente */
-    justify-content: center; /* Centrar verticalmente el texto */
-}
-
-.about-right p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem; /* Espacio entre párrafos */
-    text-align: right; /* Alinear a la derecha */
-    word-wrap: break-word; /* Evitar desbordamiento */
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #95A5A6;
 }
 
 /* Estilos responsivos */
@@ -399,20 +538,10 @@ body {
     .nav-container {
         flex-direction: column;
     }
-
-    .about-container {
-        display: none;
-    }
     
-    .nav-left {
+    .nav-left, .nav-right {
         width: 100%;
-        height: auto;
-        padding: 4rem;
-        text-align: right;
-    }
-    
-    .nav-right {
-        display: none; /* Ocultar nav-right en dispositivos medianos */
+        height: 50%;
     }
     
     .main-nav {
@@ -421,17 +550,19 @@ body {
         left: 0;
         top: 0;
         transform: none;
-        text-align: right;
     }
     
-    .main-nav a {
-        text-align: right;
+    .nav-image {
+        max-height: 400px;
     }
     
-    .nav-footer {
-        font-size: 1.5rem;
-        text-align: right;
-        padding-right: 2rem;
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 1.5rem;
     }
 }
 
@@ -440,36 +571,22 @@ body {
         font-size: 5rem;
     }
     
-    .nav-left {
-        padding: 3rem;
-        text-align: right;
-        display: none;
-    }
-    
     .main-nav {
         width: 100%;
         left: 0;
-        text-align: right;
     }
     
     .main-nav a {
         font-size: 1.5rem;
-        text-align: right;
     }
     
-    .main-nav li {
-        text-align: right;
-    }
-    
-    .nav-footer {
-        font-size: 1.2rem;
-        text-align: right;
-        padding-right: 1.5rem;
+    .nav-image {
+        max-width: 400px;
+        max-height: 300px;
     }
     
     .social-icons {
         padding: 1rem 0;
-        justify-content: flex-end;
     }
     
     .social-icon {
@@ -478,55 +595,49 @@ body {
         margin: 0 8px;
         font-size: 1rem;
     }
-
-    .about-section {
-        display: none;
+    
+    .blog-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .blog-title {
+        font-size: 2.5rem;
+    }
+    
+    .blog-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .blog-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 80%;
+        margin: 5px 0;
+    }
+    
+    .footer-container {
+        padding: 0 1rem;
+    }
+    
+    .footer-logo-img {
+        max-width: 150px;
+    }
+    
+    .footer-social {
+        gap: 0.7rem;
     }
 }
 
 @media (max-width: 480px) {
     .countdown {
         font-size: 3rem;
-        font-weight: bold;
-    }
-
-    .about-section {
-        display: none;
-    }
-    
-    .nav-container {
-        flex-direction: column;
-    }
-    
-    .nav-left {
-        width: 100%;
-        padding: 1.5rem;
-        text-align: right;
-        display: none;
-    }
-    
-    .nav-right {
-        display: none; /* Ocultar completamente en dispositivos pequeños */
-    }
-    
-    .main-nav {
-        width: 100%;
-        left: 0;
-        text-align: right;
     }
     
     .main-nav a {
-        font-size: 2rem;
-        text-align: right;
-        padding-right: 0;
-        padding-top: 8rem;
-        font-weight: bolder;
-        line-height: 0%;
-    }
-    
-    .main-nav li {
-        margin-bottom: 1.2rem;
-        text-align: right;
+        font-size: 1.2rem;
     }
     
     .menu-btn {
@@ -538,41 +649,78 @@ body {
         font-size: 18px;
     }
     
-    .nav-footer {
-        font-size: 0.8rem;
-        text-align: right;
-        padding-right: 0.5rem;
-        bottom: 1rem;
-    }
-    
-    .nav-footer .privacy-terms a {
-        font-size: 0.6rem;
+    .nav-image {
+        max-width: 300px;
+        max-height: 200px;
     }
     
     .social-icons {
         flex-wrap: wrap;
-        padding: 0.6rem 0;
-        justify-content: flex-end;
+        padding: 0.8rem 0;
     }
     
     .social-icon {
-        width: 30px;
-        height: 30px;
-        margin: 4px;
+        width: 35px;
+        height: 35px;
+        margin: 5px;
+        font-size: 0.9rem;
+    }
+    
+    .blog-section {
+        padding: 60px 15px;
+    }
+    
+    .blog-title {
+        font-size: 2rem;
+    }
+    
+    .blog-subtitle {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .blog-card-content {
+        padding: 15px;
+    }
+    
+    .blog-card-title {
+        font-size: 1.1rem;
+    }
+    
+    .blog-text p {
+        font-size: 0.9rem;
+    }
+    
+    .filter-btn {
+        width: 90%;
         font-size: 0.8rem;
+        padding: 6px 12px;
     }
     
-    
-    /* Asegurar que los textos largos se ajusten correctamente */
-    p, h1, h2, h3, h4, h5, h6 {
-        text-align: right;
-        line-height: 1.2;
+    .site-footer {
+        padding: 1.5rem 0;
+        margin-top: 2rem;
     }
     
-    /* Ajustar el ancho del texto para evitar desbordamiento */
-    .about-right p {
-        text-align: right;
+    .footer-container {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 0 1rem;
+    }
+    
+    .footer-logo-img {
+        max-width: 120px;
+    }
+    
+    .footer-social {
         width: 100%;
-        word-wrap: break-word;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .footer-bottom {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        font-size: 0.8rem;
     }
 }

@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navOverlay = document.getElementById('nav-overlay');
     const heroVideo = document.getElementById('hero-video');
     const aboutSection = document.querySelector('.about-section');
+    const blogSection = document.getElementById('blog-section');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
     
     // Animación de intro inicial
     let count = 100;
@@ -110,5 +114,46 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.main-nav a[data-image="acerca"]').addEventListener('click', (e) => {
         e.preventDefault();
         aboutSection.scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Añadir enlace de navegación para la sección de blog
+    document.querySelector('.main-nav a[data-image="blog"]').addEventListener('click', (e) => {
+        e.preventDefault();
+        blogSection.scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Funcionalidad de filtrado para los artículos del blog
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remover clase active de todos los botones
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Añadir clase active al botón clickeado
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            
+            // Filtrar las tarjetas según la categoría
+            blogCards.forEach(card => {
+                if (filter === 'todos' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Funcionalidad de Leer más/menos para los artículos
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const textContainer = btn.parentElement.querySelector('.blog-text');
+            textContainer.classList.toggle('expanded');
+            
+            if (textContainer.classList.contains('expanded')) {
+                btn.textContent = 'Leer menos';
+            } else {
+                btn.textContent = 'Leer más';
+            }
+        });
     });
 });
