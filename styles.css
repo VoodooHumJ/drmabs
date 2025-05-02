@@ -5,17 +5,15 @@
 }
 
 html {
-    /* Ocultar la barra de desplazamiento pero mantener la funcionalidad */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE y Edge */
+    
 }
 
 html::-webkit-scrollbar {
-    display: none; /* Chrome, Safari y Opera */
+    
 }
 
 body {
-    font-family: 'Futura', 'Trebuchet MS', 'Arial', sans-serif;
+    font-family: ''Futura', 'Trebuchetni MS', 'Arial', sans-serif;'
     background-color: #2C3E50;
     color: #edefef;
     overflow-x: hidden;
@@ -268,7 +266,9 @@ body {
     filter: blur(1px); 
     transition: filter 0.5s ease;
     margin-bottom: 1rem;
-    background-image: linear-gradient(to right, #2C3E50, #3498DB);
+    background-image: 
+        linear-gradient(to right, #2C3E50, #3498DB);
+        
     background-size: cover;
     background-position: center;
 }
@@ -340,6 +340,103 @@ body {
 /* Estilos de la sección About */
 
 
+/* Estilos de la sección de servicios */
+.services-section {
+    position: relative;
+    padding: 100px 20px;
+    background-color: #edefef;
+    z-index: 10;
+    margin-top: 100vh;
+    border-radius: 15px 15px 0 0;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2C3E50;
+}
+
+.services-subtitle {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #95A5A6;
+    font-weight: normal;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: #3498DB;
+    margin-bottom: 20px;
+}
+
+.service-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #2C3E50;
+}
+
+.service-description {
+    color: #121212;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Media queries para la sección de servicios */
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-title {
+        font-size: 2.5rem;
+    }
+    
+    .services-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
 /* Estilos de la sección de blog */
 .blog-section {
     position: relative;
@@ -347,6 +444,7 @@ body {
     background-color: #f8f8f8;
     z-index: 10;
     margin-top: 100vh;
+    border-radius: 15px 15px 0 0;
 }
 
 .blog-container {
